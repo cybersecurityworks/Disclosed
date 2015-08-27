@@ -1,0 +1,42 @@
+
+Word Press Product Bugs Report
+Bug Name	XSS (Cross Site Scripting)
+Area Path	NextGEN Gallery by Photocrati Version 2.1.7 (Plugin)
+Last Updated	12-08-2015
+Compatible	Up to Wordpress 4.3.0 Version (Requires: 3.6.1 or higher)
+Severity	High
+Reported by	sathish Cyber Security Works (disclose@cybersecurityworks.com)
+
+Impact
+•	User’s session cookie & end user files disclosure.
+•	Hijack the user’s session & take over the account.
+•	Installation of Trojan horse programs.
+•	Redirection of the user to some other page or site.
+•	Modification to the presentation of content.
+
+Description	Cross Site Scripting:
+A cross site scripting (XSS) attack can cause arbitrary code (java script) to run in a user’s browser while the browser is connected to a trusted web site. The application targets your application’s users and not the application itself, but it uses your application as the vehicle for the attack. 
+XSS payload is executing when the user tries to modify the value of the following mentioned variable in NextGEN Gallery Plugin in 15 Places whereas, few of them are listed below along with screenshots for better understanding.
+
+•	thumbnail_settings[thumbwidth]
+•	thumbnail_settings[thumbheight]
+•	watermark_options[wmXpos]
+•	watermark_options[wmYpos]
+•	photocrati-nextgen_basic_thumbnails[thumbnail_width]
+•	photocrati-nextgen_basic_thumbnails[thumbnail_height]
+•	photocrati-nextgen_basic_thumbnails[template]
+•	photocrati-nextgen_basic_imagebrowser[template]
+•	photocrati-nextgen_basic_singlepic[template]
+•	photocrati-nextgen_basic_compact_album[template]
+•	photocrati-nextgen_basic_compact_album[thumbnail_width]
+•	photocrati-nextgen_basic_compact_album[thumbnail_height]
+•	photocrati-nextgen_basic_extended_album[template]
+•	photocrati-nextgen_basic_extended_album[thumbnail_width]
+•	photocrati-nextgen_basic_extended_album[thumbnail_height]
+
+Reproducing Steps	
+
+1)	Logon into any wordpress application (localhost or public host)
+2)	Modifying the above mentioned variables in NextGEN Gallery  Photocrati Version 2.1.7 (recently updated version)
+3)	Fill all the variables with “><img src=x onerror=prompt(1)> payload and save it to view further.
+4)	Now, the added XSS payload will be executed whenever we review it.
