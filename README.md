@@ -1,2 +1,2 @@
-# Diclosed
+# Disclosed
 Disclose the bug 
